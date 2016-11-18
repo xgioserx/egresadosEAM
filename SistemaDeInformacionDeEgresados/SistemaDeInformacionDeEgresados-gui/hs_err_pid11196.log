@@ -1,0 +1,192 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:273), pid=11196, tid=0x000000000000280c
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_102-b14) (build 1.8.0_102-b14)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.102-b14 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000055019800):  VMThread [stack: 0x0000000056130000,0x0000000056230000] [id=10252]
+
+Stack: [0x0000000056130000,0x0000000056230000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+
+[error occurred during error reporting (printing native stack), id 0xc00000fd]
+
+VM_Operation (0x000000005717dc10): CollectForMetadataAllocation, mode: safepoint, requested by thread 0x00000000569a6000
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000005785c000 JavaThread "TimerQueue" daemon [_thread_blocked, id=11364, stack(0x00000000594f0000,0x00000000595f0000)]
+  0x000000000014e000 JavaThread "DestroyJavaVM" [_thread_blocked, id=9668, stack(0x0000000002400000,0x0000000002500000)]
+  0x00000000574f3800 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=11408, stack(0x0000000058620000,0x0000000058720000)]
+  0x0000000057492800 JavaThread "AWT-Windows" daemon [_thread_blocked, id=11592, stack(0x0000000057e60000,0x0000000057f60000)]
+  0x0000000056d3f000 JavaThread "AWT-Shutdown" [_thread_blocked, id=1620, stack(0x0000000057180000,0x0000000057280000)]
+  0x0000000056d3e000 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=11400, stack(0x0000000057ce0000,0x0000000057de0000)]
+  0x0000000056a10800 JavaThread "Service Thread" daemon [_thread_blocked, id=11212, stack(0x0000000056730000,0x0000000056830000)]
+  0x00000000569a6000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=10856, stack(0x0000000057080000,0x0000000057180000)]
+  0x00000000569a1000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=8276, stack(0x0000000056e90000,0x0000000056f90000)]
+  0x000000005508b000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=12168, stack(0x00000000568a0000,0x00000000569a0000)]
+  0x0000000055089000 JavaThread "Attach Listener" daemon [_thread_blocked, id=11740, stack(0x0000000056620000,0x0000000056720000)]
+  0x0000000055086000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=11660, stack(0x0000000056460000,0x0000000056560000)]
+  0x0000000055069000 JavaThread "Finalizer" daemon [_thread_blocked, id=10688, stack(0x00000000562a0000,0x00000000563a0000)]
+  0x0000000055021800 JavaThread "Reference Handler" daemon [_thread_blocked, id=10384, stack(0x0000000055ff0000,0x00000000560f0000)]
+
+Other Threads:
+=>0x0000000055019800 VMThread [stack: 0x0000000056130000,0x0000000056230000] [id=10252]
+  0x0000000056a59000 WatcherThread [stack: 0x0000000057360000,0x0000000057460000] [id=5520]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000000000014c160] Threads_lock - owner thread: 0x0000000055019800
+[0x000000000014c660] Heap_lock - owner thread: 0x00000000569a6000
+[0x000000000014cbe0] MethodData_lock - owner thread: 0x00000000569a6000
+
+Heap:
+ PSYoungGen      total 18944K, used 2528K [0x00000000eb180000, 0x00000000ec680000, 0x0000000100000000)
+  eden space 16384K, 0% used [0x00000000eb180000,0x00000000eb180000,0x00000000ec180000)
+  from space 2560K, 98% used [0x00000000ec400000,0x00000000ec6781c8,0x00000000ec680000)
+  to   space 2560K, 0% used [0x00000000ec180000,0x00000000ec180000,0x00000000ec400000)
+ ParOldGen       total 44032K, used 5818K [0x00000000c1400000, 0x00000000c3f00000, 0x00000000eb180000)
+  object space 44032K, 13% used [0x00000000c1400000,0x00000000c19aeb58,0x00000000c3f00000)
+ Metaspace       used 14702K, capacity 14954K, committed 15104K, reserved 1067008K
+  class space    used 1914K, capacity 1997K, committed 2048K, reserved 1048576K
+
+Card table byte_map: [0x0000000011b90000,0x0000000011d90000] byte_map_base: 0x0000000011586000
+
+Marking Bits: (ParMarkBitMap*) 0x000000005d35a6c0
+ Begin Bits: [0x0000000012530000, 0x00000000134e0000)
+ End Bits:   [0x00000000134e0000, 0x0000000014490000)
+
+Polling page: 0x0000000000120000
+
+CodeCache: size=245760Kb used=5738Kb max_used=5748Kb free=240021Kb
+ bounds [0x00000000027d0000, 0x0000000002d80000, 0x00000000117d0000]
+ total_blobs=2289 nmethods=1775 adapters=426
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 10.483 Thread 0x00000000569a6000 nmethod 1770 0x0000000002d6a310 code [0x0000000002d6a4c0, 0x0000000002d6af30]
+Event: 10.513 Thread 0x00000000569a1000 1771       4       java.awt.Container::findComponentAtImpl (161 bytes)
+Event: 10.554 Thread 0x00000000569a1000 nmethod 1771 0x0000000002d6e850 code [0x0000000002d6ea00, 0x0000000002d6f628]
+Event: 10.609 Thread 0x00000000569a6000 1772       3       java.awt.Component::areInputMethodsEnabled (39 bytes)
+Event: 10.610 Thread 0x00000000569a6000 nmethod 1772 0x0000000002d6e450 code [0x0000000002d6e5a0, 0x0000000002d6e7f0]
+Event: 10.610 Thread 0x00000000569a6000 1773  s    3       sun.awt.im.InputContext::getInputMethod (34 bytes)
+Event: 10.611 Thread 0x00000000569a6000 nmethod 1773 0x0000000002d6ddd0 code [0x0000000002d6df40, 0x0000000002d6e388]
+Event: 10.611 Thread 0x00000000569a6000 1774       3       java.util.HashSet::remove (20 bytes)
+Event: 10.611 Thread 0x00000000569a6000 nmethod 1774 0x0000000002d6d910 code [0x0000000002d6da80, 0x0000000002d6dd08]
+Event: 3452.435 Thread 0x00000000569a6000 1776       3       java.lang.invoke.MethodType::toMethodDescriptorString (21 bytes)
+
+GC Heap History (5 events):
+Event: 4.274 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 18944K, used 16384K [0x00000000eb180000, 0x00000000ec680000, 0x0000000100000000)
+  eden space 16384K, 100% used [0x00000000eb180000,0x00000000ec180000,0x00000000ec180000)
+  from space 2560K, 0% used [0x00000000ec400000,0x00000000ec400000,0x00000000ec680000)
+  to   space 2560K, 0% used [0x00000000ec180000,0x00000000ec180000,0x00000000ec400000)
+ ParOldGen       total 44032K, used 0K [0x00000000c1400000, 0x00000000c3f00000, 0x00000000eb180000)
+  object space 44032K, 0% used [0x00000000c1400000,0x00000000c1400000,0x00000000c3f00000)
+ Metaspace       used 14014K, capacity 14242K, committed 14592K, reserved 1062912K
+  class space    used 1870K, capacity 1931K, committed 2048K, reserved 1048576K
+Event: 4.286 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 18944K, used 2548K [0x00000000eb180000, 0x00000000ec680000, 0x0000000100000000)
+  eden space 16384K, 0% used [0x00000000eb180000,0x00000000eb180000,0x00000000ec180000)
+  from space 2560K, 99% used [0x00000000ec180000,0x00000000ec3fd2e8,0x00000000ec400000)
+  to   space 2560K, 0% used [0x00000000ec400000,0x00000000ec400000,0x00000000ec680000)
+ ParOldGen       total 44032K, used 2456K [0x00000000c1400000, 0x00000000c3f00000, 0x00000000eb180000)
+  object space 44032K, 5% used [0x00000000c1400000,0x00000000c1666118,0x00000000c3f00000)
+ Metaspace       used 14014K, capacity 14242K, committed 14592K, reserved 1062912K
+  class space    used 1870K, capacity 1931K, committed 2048K, reserved 1048576K
+}
+Event: 3459.725 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 18944K, used 12331K [0x00000000eb180000, 0x00000000ec680000, 0x0000000100000000)
+  eden space 16384K, 59% used [0x00000000eb180000,0x00000000ebb0dc08,0x00000000ec180000)
+  from space 2560K, 99% used [0x00000000ec180000,0x00000000ec3fd2e8,0x00000000ec400000)
+  to   space 2560K, 0% used [0x00000000ec400000,0x00000000ec400000,0x00000000ec680000)
+ ParOldGen       total 44032K, used 2456K [0x00000000c1400000, 0x00000000c3f00000, 0x00000000eb180000)
+  object space 44032K, 5% used [0x00000000c1400000,0x00000000c1666118,0x00000000c3f00000)
+ Metaspace       used 14702K, capacity 14954K, committed 15104K, reserved 1067008K
+  class space    used 1914K, capacity 1997K, committed 2048K, reserved 1048576K
+Event: 3484.471 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 18944K, used 2528K [0x00000000eb180000, 0x00000000ec680000, 0x0000000100000000)
+  eden space 16384K, 0% used [0x00000000eb180000,0x00000000eb180000,0x00000000ec180000)
+  from space 2560K, 98% used [0x00000000ec400000,0x00000000ec6781c8,0x00000000ec680000)
+  to   space 2560K, 0% used [0x00000000ec180000,0x00000000ec180000,0x00000000ec400000)
+ ParOldGen       total 44032K, used 5818K [0x00000000c1400000, 0x00000000c3f00000, 0x00000000eb180000)
+  object space 44032K, 13% used [0x00000000c1400000,0x00000000c19aeb58,0x00000000c3f00000)
+ Metaspace       used 14702K, capacity 14954K, committed 15104K, reserved 1067008K
+  class space    used 1914K, capacity 1997K, committed 2048K, reserved 1048576K
+}
+Event: 3484.471 GC heap before
+{Heap before GC invocations=3 (full 1):
+ PSYoungGen      total 18944K, used 2528K [0x00000000eb180000, 0x00000000ec680000, 0x0000000100000000)
+  eden space 16384K, 0% used [0x00000000eb180000,0x00000000eb180000,0x00000000ec180000)
+  from space 2560K, 98% used [0x00000000ec400000,0x00000000ec6781c8,0x00000000ec680000)
+  to   space 2560K, 0% used [0x00000000ec180000,0x00000000ec180000,0x00000000ec400000)
+ ParOldGen       total 44032K, used 5818K [0x00000000c1400000, 0x00000000c3f00000, 0x00000000eb180000)
+  object space 44032K, 13% used [0x00000000c1400000,0x00000000c19aeb58,0x00000000c3f00000)
+ Metaspace       used 14702K, capacity 14954K, committed 15104K, reserved 1067008K
+  class space    used 1914K, capacity 1997K, committed 2048K, reserved 1048576K
+
+Deoptimization events (9 events):
+Event: 0.523 Thread 0x0000000057576000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000029a4068 method=java.lang.String.<init>([CII)V @ 18
+Event: 0.542 Thread 0x0000000057492800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000029acbf8 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 206
+Event: 0.570 Thread 0x00000000574f3800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000000029d3288 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 109
+Event: 1.064 Thread 0x00000000574f3800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002a62794 method=sun.font.TrueTypeFont.getDirectoryEntry(I)Lsun/font/TrueTypeFont$DirectoryEntry; @ 7
+Event: 1.082 Thread 0x00000000574f3800 Uncommon trap: reason=predicate action=maybe_recompile pc=0x0000000002a2c618 method=java.util.ArrayList.indexOf(Ljava/lang/Object;)I @ 44
+Event: 1.210 Thread 0x00000000574f3800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002ab7ec0 method=java.awt.MultipleGradientPaintContext.indexIntoGradientsArrays(F)I @ 13
+Event: 2.448 Thread 0x00000000574f3800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000293414c method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 2.448 Thread 0x00000000574f3800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000293414c method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 4.114 Thread 0x00000000574f3800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000293414c method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+
+Internal exceptions (10 events):
+Event: 0.361 Thread 0x000000000014e000 Exception <a 'java/lang/ClassNotFoundException': ToolBar> (0x00000000eb4e15c8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u102\7268\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.361 Thread 0x000000000014e000 Exception <a 'java/lang/ClassNotFoundException': ToggleButton> (0x00000000eb4e1b78) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u102\7268\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.361 Thread 0x000000000014e000 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JToolBarSeparator> (0x00000000eb4e1fd8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u102\7268\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.361 Thread 0x000000000014e000 Exception <a 'java/lang/ClassNotFoundException': ToolBarSeparator> (0x00000000eb4e2470) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u102\7268\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.361 Thread 0x000000000014e000 Exception <a 'java/lang/ClassNotFoundException': ToolTip> (0x00000000eb4e2bb0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u102\7268\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.362 Thread 0x000000000014e000 Exception <a 'java/lang/ClassNotFoundException': Tree> (0x00000000eb4e37d0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u102\7268\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.362 Thread 0x000000000014e000 Exception <a 'java/lang/ClassNotFoundException': Tree> (0x00000000eb4e3f10) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u102\7268\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.362 Thread 0x000000000014e000 Exception <a 'java/lang/ClassNotFoundException': javax/swing/JTreeCell> (0x00000000eb4e4290) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u102\7268\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.363 Thread 0x000000000014e000 Exception <a 'java/lang/ClassNotFoundException': TreeCell> (0x00000000eb4e4718) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u102\7268\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 0.363 Thread 0x000000000014e000 Exception <a 'java/lang/ClassNotFoundException': RootPane> (0x00000000eb4e5178) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u102\7268\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+
+Events (10 events):
+Event: 4.618 Thread 0x00000000574f3800 DEOPT PACKING pc=0x0000000002b1915d sp=0x000000005871b800
+Event: 4.618 Thread 0x00000000574f3800 DEOPT UNPACKING pc=0x000000000281747f sp=0x000000005871b540 mode 0
+Event: 4.644 loading class java/awt/LightweightDispatcher$2
+Event: 4.645 loading class java/awt/LightweightDispatcher$2 done
+Event: 4.737 loading class java/util/ArrayList$1
+Event: 4.737 loading class java/util/ArrayList$1 done
+Event: 9.415 Thread 0x0000000057576000 Thread exited: 0x0000000057576000
+Event: 11.857 loading class sun/awt/SunToolkit$1
+Event: 11.857 loading class sun/awt/SunToolkit$1 done
+Event: 3458.977 Executing VM operation: CollectForMetadataAllocation
+
+
+Dynamic libraries:
